@@ -2,6 +2,7 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 //import org.junit.Assert.*;
+import static java.lang.System.lineSeparator;
 import static org.junit.Assert.*;
 
 
@@ -55,4 +56,48 @@ public class JobTest {
 //        System.out.println(assertFalse(job4.equals(job5)));
             assertFalse(job4.equals(job5));
     }
+//    Task 5
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job6 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+//      req. number 1
+//        char uses SINGLE QUOTES!!
+//        compare first and last characters to new line
+        assertEquals('\n', job6.toString().charAt(0));
+        assertEquals('\n', job6.toString().charAt(job6.toString().length() - 1));
+
+    }
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job7 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+//        req. number 2
+        assertEquals("\n" + "ID: "
+                + job7.getId() +
+
+                "\nName: Product tester" +
+                "\nEmployer: ACME" +
+                "\nLocation: Desert" +
+                "\nPosition Type: Quality control" +
+                "\nCore Competency: Persistence" + "\n"
+                , job7.toString());
+//        assertEquals(
+//        "\n" + "ID: " + job7.getId() + "\nName: " + "Product tester" +  "\nEmployer: " + "ACME" + "\nLocation: " + "Desert" + "\nPosition Type: " + "Quality control" + "\nCore Competency: " + "Persistence"+ "\n", job7.toString());
+    }
+    @Test
+    public void testToStringHandlesEmptyField() {
+//        req. number 3
+        Job job8 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals("\n" + "ID: "
+                        + job8.getId() +
+
+                        "\nName: Product tester" +
+                        "\nEmployer: Data not available" +
+                        "\nLocation: Desert" +
+                        "\nPosition Type: Quality control" +
+                        "\nCore Competency: Persistence" + "\n"
+                , job8.toString());
+    }
+
 }

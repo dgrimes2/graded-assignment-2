@@ -49,6 +49,10 @@ public class Job {
     //  and id.
 
     public String getName() {
+//        if empty return "Data not available"
+        if(name == null) {
+            return "Data not available";
+        }
         return name;
     }
 
@@ -57,6 +61,10 @@ public class Job {
     }
 
     public Employer getEmployer() {
+//        if empty return "Data not available"
+//        if(getEmployer().getValue() == null) {
+//            return "Data not available";
+//        }
         return employer;
     }
 
@@ -91,4 +99,40 @@ public class Job {
     public int getId() {
         return id;
     }
+//    Task 5
+    @Override
+    public String toString() {
+//        if field is empty return "Data not available"
+        if (name == "") {
+            name = "Data not available";
+        }
+        if (employer.getValue() == "") {
+            employer.setValue("Data not available");
+        }
+        if (location.getValue() == "") {
+            location.setValue("Data not available");
+        }
+        if (positionType.getValue() == "") {
+            positionType.setValue("Data not available");
+        }
+        if (coreCompetency.getValue() == "") {
+            coreCompetency.setValue("Data not available");
+        }
+       return
+//       lineseparator();
+//        "\n" + "ID: " + " _______" +
+//        "\nName:" + " _______" +
+//        "\nEmployer: " + " _______" +
+//        "\nLocation: " + " _______" +
+//        "\nPosition Type: " + " _______" +
+//        "\nCore Competency: " + " _______" + "\n";
+            "\n" + "ID: " + id +
+            "\nName: " + name +
+            "\nEmployer: " + employer.getValue() +
+            "\nLocation: " + location.getValue() +
+            "\nPosition Type: " + positionType.getValue() +
+            "\nCore Competency: " + coreCompetency.getValue() + "\n";
+    }
+
+
 }
