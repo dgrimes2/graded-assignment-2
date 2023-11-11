@@ -63,8 +63,8 @@ public class JobTest {
 //      req. number 1
 //        char uses SINGLE QUOTES!!
 //        compare first and last characters to new line
-        assertEquals('\n', job6.toString().charAt(0));
-        assertEquals('\n', job6.toString().charAt(job6.toString().length() - 1));
+        assertEquals(lineSeparator(), String.valueOf(job6.toString().charAt(0)));
+        assertEquals(lineSeparator(), String.valueOf(job6.toString().charAt(job6.toString().length() - 1)));
 
     }
     @Test
@@ -72,14 +72,14 @@ public class JobTest {
         Job job7 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
 //        req. number 2
-        assertEquals("\n" + "ID: "
+        assertEquals(lineSeparator() + "ID: "
                 + job7.getId() +
 
                 "\nName: Product tester" +
                 "\nEmployer: ACME" +
                 "\nLocation: Desert" +
                 "\nPosition Type: Quality control" +
-                "\nCore Competency: Persistence" + "\n"
+                "\nCore Competency: Persistence" + lineSeparator()
                 , job7.toString());
 //        assertEquals(
 //        "\n" + "ID: " + job7.getId() + "\nName: " + "Product tester" +  "\nEmployer: " + "ACME" + "\nLocation: " + "Desert" + "\nPosition Type: " + "Quality control" + "\nCore Competency: " + "Persistence"+ "\n", job7.toString());
@@ -89,14 +89,14 @@ public class JobTest {
 //        req. number 3
         Job job8 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        assertEquals("\n" + "ID: "
+        assertEquals(lineSeparator() + "ID: "
                         + job8.getId() +
 
                         "\nName: Product tester" +
                         "\nEmployer: Data not available" +
                         "\nLocation: Desert" +
                         "\nPosition Type: Quality control" +
-                        "\nCore Competency: Persistence" + "\n"
+                        "\nCore Competency: Persistence" + lineSeparator()
                 , job8.toString());
     }
 

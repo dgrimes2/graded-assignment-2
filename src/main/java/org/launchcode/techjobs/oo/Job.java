@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.lang.System.lineSeparator;
+
 public class Job {
 
     private int id;
@@ -126,12 +128,12 @@ public class Job {
 //        "\nLocation: " + " _______" +
 //        "\nPosition Type: " + " _______" +
 //        "\nCore Competency: " + " _______" + "\n";
-            "\n" + "ID: " + id +
+            lineSeparator() + "ID: " + id +
             "\nName: " + name +
             "\nEmployer: " + employer.getValue() +
             "\nLocation: " + location.getValue() +
             "\nPosition Type: " + positionType.getValue() +
-            "\nCore Competency: " + coreCompetency.getValue() + "\n";
+            "\nCore Competency: " + coreCompetency.getValue() + lineSeparator();
     }
 
 
